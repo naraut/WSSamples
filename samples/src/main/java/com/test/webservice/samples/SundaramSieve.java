@@ -16,9 +16,12 @@ public class SundaramSieve implements PrimeNumberGenerator {
         for (int i = 1; i < n; i++)
             for (int j = i; j <= (n - i) / (2 * i + 1); j++)
                 primes[i + j + 2 * i * j] = true;
-        
-        primeList.add(2);
-        primeList.add(3);
+        if(limit > 1){
+        	primeList.add(2);
+        }
+        if(limit > 2) {        	
+        	primeList.add(3);	        
+        }
         for (int i = 2; i < primes.length/2; i++)
             if (!primes[i])
             	primeList.add((2 * i + 1));
